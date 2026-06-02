@@ -60,7 +60,7 @@
 
 .row {
   display: grid;
-  grid-template-columns: 130px 1fr 80px;
+  grid-template-columns: 130px 1fr;
   align-items: center;
   gap: 1.75rem;
   padding: 1rem 1.25rem;
@@ -90,11 +90,43 @@
 }
 
 .level {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 0.82rem;
-  color: var(--ink4);
-  text-align: right;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.75rem;
+  border-radius: 50px;
+  background: var(--bg3);
+  color: var(--ink3);
+  border: 1px solid var(--rule);
+  white-space: nowrap;
+}
+
+.level_advanced {
+  background: var(--ind-p);
+  color: var(--ind);
+  border-color: var(--ind-m);
+}
+
+.level_intermediate {
+  background: var(--pch-p);
+  color: var(--pch);
+  border-color: rgba(232,130,106,0.25);
+}
+
+.level_proficient {
+  background: rgba(200,197,240,0.3);
+  color: var(--ind-l);
+  border-color: var(--lav);
+}
+
+.level_everyday {
+  background: rgba(168,216,200,0.25);
+  color: #3a8a72;
+  border-color: rgba(168,216,200,0.5);
 }
 
 @media (max-width: 860px) {

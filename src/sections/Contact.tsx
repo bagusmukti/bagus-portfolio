@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './Contact.module.css'
 import { useReveal } from '../hooks/useReveal'
-import { personal } from '../data'
+import { personal } from '../safeData'
 
 interface FormState {
   name: string
@@ -42,7 +42,6 @@ export function Contact() {
         <div className={`${styles.infoRow} reveal d3`}>
           {[
             { k: 'Email', v: personal.email, href: `mailto:${personal.email}` },
-            { k: 'WhatsApp', v: personal.whatsapp, href: `https://wa.me/${personal.whatsapp.replace(/\D/g, '')}` },
             { k: 'Location', v: personal.location, href: undefined as string | undefined },
           ].map(({ k, v, href }) => (
             <div key={k} className={styles.infoCard}>
@@ -102,11 +101,14 @@ export function Contact() {
 
             <div className={styles.formFooter}>
               <div className={styles.socials}>
-                {[
-                  { label: 'GitHub', url: personal.github },
-                  { label: 'LinkedIn', url: personal.linkedin },
-                  { label: 'Instagram', url: personal.instagram },
-                ].map(({ label, url }) => (
+                {(
+                  [
+                    personal.github    ? { label: 'GitHub',    url: personal.github }    : null,
+                    personal.linkedin  ? { label: 'LinkedIn',  url: personal.linkedin }  : null,
+                    personal.instagram ? { label: 'Instagram', url: personal.instagram } : null,
+                  ] as ({ label: string; url: string } | null)[]
+                ).filter((x): x is { label: string; url: string } => x !== null)
+                  .map(({ label, url }) => (
                   <a key={label} href={url} className={styles.socialPill} target="_blank" rel="noopener noreferrer">
                     {label}
                   </a>

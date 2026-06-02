@@ -1,6 +1,6 @@
 import styles from './Experience.module.css'
 import { useReveal } from '../hooks/useReveal'
-import { experience } from '../data'
+import { experience } from '../safeData'
 
 type DelayClass = 1 | 2 | 3 | 4
 
@@ -18,7 +18,7 @@ export function Experience() {
       </div>
 
       <div className={styles.list}>
-        {experience.map((e, i) => {
+        {(experience ?? []).map((e, i) => {
           const d = Math.min(i + 1, 4) as DelayClass
           return (
             <div key={e.company} className={`${styles.item} reveal d${d}`}>
@@ -30,7 +30,7 @@ export function Experience() {
                 <h3 className={styles.role}>{e.role}</h3>
                 <p className={styles.desc}>{e.desc}</p>
                 <div className={styles.stack}>
-                  {e.stack.map((tag) => (
+                  {(e.stack ?? []).map((tag) => (
                     <span key={tag} className={styles.pill}>{tag}</span>
                   ))}
                 </div>

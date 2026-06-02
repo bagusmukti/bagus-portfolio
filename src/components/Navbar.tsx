@@ -1,5 +1,5 @@
 import styles from './Navbar.module.css'
-import { personal } from '../data'
+import { personal } from '../safeData'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 interface Props {
@@ -10,26 +10,18 @@ const links = [
   { label: 'About', id: 'about' },
   { label: 'Skills', id: 'skills' },
   { label: 'Work', id: 'projects' },
-  { label: 'Experience', id: 'experience' },
   { label: 'Contact', id: 'contact' },
 ]
 
 export function Navbar({ onNav }: Props) {
   const activeSection = useActiveSection()
-  const [first, ...rest] = personal.name.split(' ')
-  const lastName = rest.join(' ')
+  const parts = (personal.name ?? '').split(' ')
+  const displayName = [parts[0], parts[1]].filter(Boolean).join(' ')
 
   return (
     <nav className={styles.nav}>
       <button className={styles.logo} onClick={() => onNav('hero')}>
-        {first}
-        {lastName && (
-          <>
-            <span className={styles.dot}>.</span>
-            {lastName}
-          </>
-        )}
-        {!lastName && <span className={styles.dot}>.</span>}
+        {displayName}
       </button>
 
       <ul className={styles.links}>

@@ -1,7 +1,7 @@
 import styles from './Hero.module.css'
 import { Particles } from '../components/Particles'
 import { useTyping } from '../hooks/useTyping'
-import { personal } from '../data'
+import { personal } from '../safeData'
 
 interface Props {
   onNav: (id: string) => void
@@ -22,7 +22,7 @@ export function Hero({ onNav }: Props) {
 
         <div className={styles.content}>
           <div className={styles.badge}>
-            ✦ Full-Stack Developer · East Java
+            ✦ Software Engineer · Indonesia
           </div>
 
           <h1 className={styles.h1}>
@@ -34,7 +34,7 @@ export function Hero({ onNav }: Props) {
           </h1>
 
           <p className={styles.sub}>
-            I'm a full-stack developer who loves crafting products end-to-end —
+            I'm a software engineer who loves crafting products end to end 
             from database schema to delightful UI. Clean code, honest design, shipped with care.
           </p>
 
@@ -42,14 +42,11 @@ export function Hero({ onNav }: Props) {
             <button className={styles.btnInd} onClick={() => onNav('projects')}>
               View my work
             </button>
-            <a className={styles.btnPch} href="#">
-              Download CV
-            </a>
           </div>
         </div>
 
         <div className={styles.statsRow}>
-          {personal.stats.map((s) => (
+          {(personal.stats ?? []).map((s) => (
             <div key={s.label} className={styles.statCard}>
               <span className={styles.statValue}>{s.value}</span>
               <span className={styles.statLabel}>{s.label}</span>

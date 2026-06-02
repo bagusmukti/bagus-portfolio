@@ -30,6 +30,25 @@
 
 html {
   scroll-behavior: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ind-m) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ind-m);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ind-l);
 }
 
 body {

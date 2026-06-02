@@ -63,9 +63,13 @@
 
 /* ─── INFO CARDS ROW ─── */
 .infoRow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
   gap: 1rem;
+}
+
+.infoRow > * {
+  flex: 0 1 280px;
 }
 
 .infoCard {

@@ -1,21 +1,23 @@
 .about {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  grid-template-columns: 230px 1fr 170px;
+  align-items: stretch;
 }
 
-/* SIDEBAR */
+/* ── LEFT SIDEBAR ── */
 .sidebar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem 2.5rem;
+  justify-content: center;
+  padding: 4rem 2rem;
   background: var(--bg2);
   border-right: 1px solid var(--rule);
   gap: 1.2rem;
 }
 
 .avatarWrap {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .avatarRing {
@@ -77,51 +79,7 @@
   border-radius: 50px;
 }
 
-.rule {
-  width: 100%;
-  border: none;
-  border-top: 1px solid var(--rule);
-}
-
-.metaList {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.metaRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.metaKey {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink4);
-  font-style: normal;
-}
-
-.metaVal {
-  font-size: 0.8rem;
-  color: var(--ink2);
-  text-align: right;
-}
-
-.statusPill {
-  background: var(--pch-p);
-  color: var(--pch);
-  border-radius: 50px;
-  padding: 0.2rem 0.7rem;
-  font-size: 0.72rem;
-  font-weight: 500;
-  border: 1px solid rgba(232,130,106,0.2);
-}
-
-/* MAIN */
+/* ── CENTER MAIN ── */
 .main {
   padding: 4rem;
   display: flex;
@@ -152,7 +110,7 @@
 .h2 {
   font-family: 'Fraunces', serif;
   font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   color: var(--ink);
   line-height: 1.2;
 }
@@ -169,7 +127,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  max-width: 640px;
 }
 
 .chips {
@@ -178,31 +135,54 @@
   gap: 0.5rem;
 }
 
-.chip {
-  padding: 0.3rem 0.85rem;
-  border-radius: 50px;
-  font-size: 0.78rem;
-  font-weight: 400;
+/* ── RIGHT STATS PANEL ── */
+.statsPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem 1.5rem;
+  background: var(--bg2);
+  border-left: 1px solid var(--rule);
 }
 
-.ci {
-  background: var(--ind-p);
+.statCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  padding: 1.1rem 0.75rem;
+  border-radius: 14px;
+  background: var(--bg);
+  border: 1.5px solid var(--rule);
+}
+
+.statNum {
+  font-family: 'Fraunces', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--ind);
-  border: 1px solid var(--ind-m);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  word-break: break-word;
+  text-align: center;
 }
 
-.cp {
-  background: var(--pch-p);
-  color: var(--pch);
-  border: 1px solid rgba(232,130,106,0.2);
+.statNumSm {
+  font-size: 0.85rem;
+  letter-spacing: 0;
 }
 
-.cl {
-  background: rgba(200, 197, 240, 0.25);
-  color: var(--ind-l);
-  border: 1px solid var(--lav);
+.statLabel {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink4);
+  line-height: 1.4;
 }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 860px) {
   .about {
     grid-template-columns: 1fr;
@@ -216,5 +196,19 @@
 
   .main {
     padding: 2.5rem 1.5rem;
+  }
+
+  .statsPanel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-left: none;
+    border-top: 1px solid var(--rule);
+    padding: 2rem 1.5rem;
+  }
+
+  .statCard {
+    flex: 1 1 120px;
+    max-width: 160px;
   }
 }

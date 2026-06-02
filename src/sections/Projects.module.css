@@ -181,6 +181,25 @@
   background: var(--ind-p);
 }
 
+.viewBtn {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  color: var(--pch);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid rgba(232,130,106,0.3);
+  background: var(--pch-p);
+  transition: background 0.2s, color 0.2s;
+  cursor: none;
+}
+
+.card:hover .viewBtn {
+  background: var(--pch);
+  color: #fff;
+  border-color: var(--pch);
+}
+
 .arrowLink {
   display: flex;
   align-items: center;
