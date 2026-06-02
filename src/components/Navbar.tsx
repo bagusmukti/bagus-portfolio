@@ -1,5 +1,6 @@
 import styles from './Navbar.module.css'
 import { personal } from '../data'
+import { useActiveSection } from '../hooks/useActiveSection'
 
 interface Props {
   onNav: (id: string) => void
@@ -14,6 +15,7 @@ const links = [
 ]
 
 export function Navbar({ onNav }: Props) {
+  const activeSection = useActiveSection()
   const [first, ...rest] = personal.name.split(' ')
   const lastName = rest.join(' ')
 
@@ -33,7 +35,10 @@ export function Navbar({ onNav }: Props) {
       <ul className={styles.links}>
         {links.map((l) => (
           <li key={l.id}>
-            <button className={styles.link} onClick={() => onNav(l.id)}>
+            <button
+              className={`${styles.link} ${activeSection === l.id ? styles.active : ''}`}
+              onClick={() => onNav(l.id)}
+            >
               {l.label}
             </button>
           </li>

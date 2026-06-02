@@ -30,7 +30,13 @@ export function useCurtain() {
 
     setTimeout(() => {
       const target = document.getElementById(targetId)
-      if (target) target.scrollIntoView({ behavior: 'instant' })
+      if (target) {
+        const navHeight = (document.querySelector('nav') as HTMLElement)?.offsetHeight ?? 64
+        const top = target.getBoundingClientRect().top + window.scrollY - navHeight
+        document.documentElement.style.scrollBehavior = 'auto'
+        window.scrollTo({ top: Math.max(0, top), behavior: 'instant' })
+        document.documentElement.style.scrollBehavior = ''
+      }
 
       setTimeout(() => {
         el.style.transform = 'translateY(100%)'
