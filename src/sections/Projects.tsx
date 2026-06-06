@@ -20,7 +20,7 @@ export function Projects() {
         <div className={`${styles.sectionTag} reveal`}>Work</div>
         <div className={styles.headerRow}>
           <h2 className={`${styles.h2} reveal d1`}>Selected projects</h2>
-          <p className={`${styles.subtitle} reveal d1`}>Things I've designed and built.</p>
+          <p className={`${styles.subtitle} reveal d1`}>Things I've designed and built using the STAR method (Situation, Task, Action, Result).</p>
         </div>
       </div>
 
@@ -56,7 +56,14 @@ export function Projects() {
                   ))}
                 </div>
                 <h3 className={styles.cardTitle}>{p.title}</h3>
-                <p className={styles.cardDesc}>{p.desc}</p>
+                <ul className={styles.starList}>
+                  {(['situation', 'task', 'action', 'result'] as const).map((key, idx) => (
+                    <li key={key} className={styles.starRow}>
+                      <span className={styles.starKey}>{'STAR'[idx]}</span>
+                      <span className={styles.starVal}>{p.star[key]}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <div className={styles.footer}>
