@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  min-height: 90vh;
 }
 
 .header {
@@ -52,41 +53,45 @@
   color: var(--ink4);
 }
 
-.list {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background: var(--bg2);
+  border: 1.5px solid var(--rule);
+  border-radius: 18px;
+  padding: 1.4rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 130px 1fr;
   align-items: center;
-  gap: 1.75rem;
-  padding: 1rem 1.25rem;
-  border-radius: 14px;
-  border: 1.5px solid transparent;
-  transition: background 0.2s, border-color 0.2s;
-  cursor: default;
+  gap: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
-.row:hover {
-  background: var(--ind-p);
+.card:hover {
   border-color: var(--ind-m);
+  box-shadow: 0 8px 24px rgba(74, 69, 128, 0.1);
+  transform: translateY(-3px);
 }
 
 .cat {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--ink4);
-  font-weight: 500;
+  color: var(--ink2);
+  font-weight: 600;
+  text-align: center;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .level {
@@ -134,11 +139,13 @@
     padding: 3.5rem 1.5rem;
   }
 
-  .row {
-    grid-template-columns: 100px 1fr;
+  .grid {
+    grid-template-columns: 1fr 1fr;
   }
+}
 
-  .level {
-    display: none;
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }

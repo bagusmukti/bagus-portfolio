@@ -33,30 +33,7 @@ export function About() {
   return (
     <section id="about" ref={ref} className={styles.about}>
 
-      {/* ── LEFT: photo + name + role ── */}
-      <div className={styles.sidebar}>
-        <div className={`${styles.avatarWrap} reveal`}>
-          <div className={styles.avatarRing}>
-            <div className={styles.avatarInner}>
-              {personal.photo ? (
-                <img src={personal.photo} alt={personal.name} className={styles.photo} />
-              ) : (
-                <svg viewBox="0 0 60 60" fill="none" className={styles.personIcon}>
-                  <circle cx="30" cy="22" r="11" fill="var(--ind-m)" />
-                  <ellipse cx="30" cy="50" rx="18" ry="12" fill="var(--ind-m)" />
-                </svg>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className={`${styles.sidebarName} reveal d1`}>
-          <span className={styles.sideName}>{personal.name}</span>
-          <span className={styles.sideRole}>{personal.role}</span>
-        </div>
-      </div>
-
-      {/* ── CENTER: narrative ── */}
+      {/* ── LEFT: narrative ── */}
       <div className={styles.main}>
         <div className={`${styles.sectionTag} reveal`}>About me</div>
         <h2 className={`${styles.h2} reveal d1`}>

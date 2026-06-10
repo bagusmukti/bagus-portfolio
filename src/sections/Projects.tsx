@@ -39,11 +39,6 @@ export function Projects() {
                   <>
                     <span className={styles.thumbWatermark}>{p.num}</span>
                     <span className={styles.thumbTitle}>{p.title}</span>
-                    <div className={styles.thumbTags}>
-                      {p.stack.slice(0, 2).map((t) => (
-                        <span key={t} className={styles.thumbTag}>{t}</span>
-                      ))}
-                    </div>
                   </>
                 )}
               </div>

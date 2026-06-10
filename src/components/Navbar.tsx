@@ -10,7 +10,6 @@ const links = [
   { label: 'About', id: 'about' },
   { label: 'Skills', id: 'skills' },
   { label: 'Work', id: 'projects' },
-  { label: 'Contact', id: 'contact' },
 ]
 
 export function Navbar({ onNav }: Props) {

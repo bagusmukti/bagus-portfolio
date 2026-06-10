@@ -72,11 +72,11 @@ export function Skills() {
         </div>
       </div>
 
-      <div className={styles.list}>
+      <div className={styles.grid}>
         {(skills ?? []).map((s, i) => {
           const d = Math.min(i + 1, 5) as DelayClass
           return (
-            <div key={s.cat} className={`${styles.row} reveal d${d}`}>
+            <div key={s.cat} className={`${styles.card} reveal d${d}`}>
               <span className={styles.cat}>{s.cat}</span>
               <div className={styles.tags}>
                 {(s.tags ?? []).map((tag, j) => (

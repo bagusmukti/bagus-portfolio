@@ -1,8 +1,8 @@
 .about {
   display: grid;
-  grid-template-columns: 320px 1fr 170px;
+  grid-template-columns: 1fr 170px;
   align-items: stretch;
-  min-height: 650px;
+  min-height: 90vh;
 }
 
 /* ── LEFT SIDEBAR ── */
@@ -187,12 +187,6 @@
 @media (max-width: 860px) {
   .about {
     grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    border-right: none;
-    border-bottom: 1px solid var(--rule);
-    padding: 3rem 1.5rem;
   }
 
   .main {
