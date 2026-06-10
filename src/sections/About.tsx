@@ -73,13 +73,13 @@ export function About({ theme, onToggleTheme }: Props) {
         </h2>
 
         <div className={`${styles.bio} reveal d2`}>
-          {(personal.bio ?? '').split('\n').map((line, i) =>
+          {(personal.bio ?? '').split('\n').map((line: string, i: number) =>
             line.trim() === '' ? <br key={i} /> : <p key={i}>{line}</p>
           )}
         </div>
 
         <div className={`${styles.chips} reveal d3`}>
-          {(personal.chips ?? []).map((chip, i) => (
+          {(personal.chips ?? []).map((chip: string, i: number) => (
             <MagneticTag
               key={chip}
               label={chip}

@@ -45,7 +45,7 @@ export function Projects() {
 
               <div className={styles.body}>
                 <div className={styles.stack}>
-                  {(p.stack ?? []).map((tag) => (
+                  {(p.stack ?? []).map((tag: string) => (
                     <span key={tag} className={styles.stackPill}>{tag}</span>
                   ))}
                 </div>

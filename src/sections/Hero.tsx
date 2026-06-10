@@ -1,7 +1,6 @@
 import styles from './Hero.module.css'
 import { Particles } from '../components/Particles'
 import { useTyping } from '../hooks/useTyping'
-import { personal } from '../safeData'
 
 interface Props {
   onNav: (id: string) => void

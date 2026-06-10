@@ -30,7 +30,7 @@ export function Experience() {
                 <h3 className={styles.role}>{e.role}</h3>
                 <p className={styles.desc}>{e.desc}</p>
                 <div className={styles.stack}>
-                  {(e.stack ?? []).map((tag) => (
+                  {(e.stack ?? []).map((tag: string) => (
                     <span key={tag} className={styles.pill}>{tag}</span>
                   ))}
                 </div>

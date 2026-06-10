@@ -79,7 +79,7 @@ export function Skills() {
             <div key={s.cat} className={`${styles.card} reveal d${d}`}>
               <span className={styles.cat}>{s.cat}</span>
               <div className={styles.tags}>
-                {(s.tags ?? []).map((tag, j) => (
+                {(s.tags ?? []).map((tag: string, j: number) => (
                   <MagneticTag key={tag} label={tag} icon={ICON_MAP[tag]} colors={TAG_COLORS[(i + j) % TAG_COLORS.length]} />
                 ))}
               </div>
