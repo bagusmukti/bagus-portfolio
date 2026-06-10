@@ -1,0 +1,121 @@
+.contact {
+  padding: 2.5rem 4rem 5rem;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+/* ─── HEADER ─── */
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  align-items: center;
+}
+
+.sectionTag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--pch);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.sectionTag::before {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: var(--pch);
+  border-radius: 2px;
+}
+
+.h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.em {
+  font-style: italic;
+  color: var(--ind);
+}
+
+.body {
+  font-size: 0.9rem;
+  color: var(--ink3);
+  line-height: 1.75;
+  max-width: 480px;
+}
+
+/* ─── CONTACT LIST ─── */
+.links {
+  list-style: none;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.item {
+  border-top: 1px solid var(--rule);
+}
+
+.item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.contactLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 0.2rem;
+  text-decoration: none;
+  cursor: none;
+  transition: color 0.2s;
+}
+
+.contactLink:hover .linkLabel {
+  color: var(--ind);
+  transform: translateX(10px);
+}
+
+.contactLink:hover .arrow {
+  color: var(--ind);
+  transform: translate(4px, -4px);
+}
+
+.linkLabel {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  transition: color 0.25s, transform 0.25s;
+}
+
+.arrow {
+  font-size: 1.4rem;
+  color: var(--ink4);
+  flex-shrink: 0;
+  transition: color 0.25s, transform 0.25s;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .contact {
+    padding: 3.5rem 1.5rem;
+  }
+}

@@ -1,0 +1,220 @@
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes morph1 {
+  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50%  { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+  75%  { border-radius: 70% 30% 50% 60% / 40% 70% 30% 60%; }
+}
+
+@keyframes morph2 {
+  0%,100% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+  33%  { border-radius: 60% 40% 30% 70% / 30% 70% 60% 40%; }
+  66%  { border-radius: 30% 70% 70% 30% / 60% 40% 30% 70%; }
+}
+
+@keyframes blink-c {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* ─── SECTION ─── */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 4rem 5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ─── BLOBS ─── */
+.blob1 {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 380px;
+  height: 380px;
+  background: var(--ind-p);
+  opacity: 0.7;
+  z-index: 0;
+  animation: morph1 8s ease-in-out infinite;
+}
+
+.blob2 {
+  position: absolute;
+  bottom: -80px;
+  left: -60px;
+  width: 300px;
+  height: 300px;
+  background: var(--pch-p);
+  opacity: 0.55;
+  z-index: 0;
+  animation: morph2 10s ease-in-out infinite;
+}
+
+/* ─── INNER CONTAINER ─── */
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 740px;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ─── WELCOME ─── */
+.welcome {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  animation: fadeUp 0.6s 0s ease both;
+}
+
+/* ─── CONTENT BLOCK ─── */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 50px;
+  background: var(--ind-p);
+  color: var(--ind);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  width: fit-content;
+  animation: fadeUp 0.6s 0.05s ease both;
+}
+
+.h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+  color: var(--ink);
+  line-height: 1.12;
+  animation: fadeUp 0.65s 0.12s ease both;
+}
+
+.typingText {
+  display: inline;
+  color: var(--pch);
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-color: var(--lav);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.85em;
+  background: var(--pch);
+  margin-left: 2px;
+  vertical-align: baseline;
+  animation: blink-c 1s step-end infinite;
+}
+
+.sub {
+  color: var(--ink3);
+  max-width: 500px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  animation: fadeUp 0.65s 0.26s ease both;
+}
+
+.btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 0.65s 0.33s ease both;
+}
+
+.btnInd {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  background: var(--ind);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: none;
+  border: none;
+  box-shadow: 0 6px 20px rgba(74, 69, 128, 0.28);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.btnInd:hover {
+  background: var(--ind-l);
+  box-shadow: 0 8px 24px rgba(74, 69, 128, 0.38);
+  transform: translateY(-1px);
+}
+
+/* ─── SCROLL HINT ─── */
+.scrollHint {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  animation: fadeUp 0.6s 0.8s ease both;
+}
+
+.scrollLabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink4);
+}
+
+.scrollArrow {
+  font-size: 1.1rem;
+  color: var(--pch);
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 860px) {
+  .hero {
+    padding: 5rem 1.5rem 4rem;
+    min-height: auto;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+
+  .blob1 {
+    width: 220px;
+    height: 220px;
+    top: -40px;
+    right: -40px;
+  }
+
+  .blob2 {
+    width: 180px;
+    height: 180px;
+  }
+}
