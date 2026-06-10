@@ -5,7 +5,7 @@ export const personal = {
   email: 'bagusmuktipurnomo@gmail.com',
   github: 'https://github.com/bagusmukti',
   linkedin: 'https://www.linkedin.com/in/bagusmuktipurnomo',
-  photo: '/src/assets/profil.jpeg',
+  photo: '/profil.jpeg',
   bio: `A passionate Software Engineer with about 2 years of experience in web and mobile application development. Experienced in leading development teams as a Product Owner. With experience spanning front end, back end, and mobile development, I leverage modern technologies such as React, Laravel, ASP.NET and Flutter to create scalable, user centered, and impactful digital products. Beyond technical expertise, my experience as a Product Owner has strengthened my ability to lead teams and bridge the gap between innovative ideas and practical solutions. I thrive on turning complex challenges into elegant, scalable, and user focused applications that make a real difference. Driven by a passion for building exceptional digital experiences, I enjoy transforming ideas into elegant, functional, and high quality applications that deliver meaningful value to users.`,
   chips: ['Systems thinker', 'Detail oriented', 'Clean code', 'Team player', 'Fast learner'],
 }
