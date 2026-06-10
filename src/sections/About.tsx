@@ -2,6 +2,7 @@ import styles from './About.module.css'
 import { useReveal } from '../hooks/useReveal'
 import { personal } from '../safeData'
 import { MagneticTag } from '../components/MagneticTag'
+import { ThemeToggle } from '../components/ThemeToggle'
 
 const CHIP_COLORS = [
   {
@@ -27,15 +28,45 @@ const RIGHT_STATS = [
   { num: 'ID/EN',   label: 'Languages' },
 ]
 
-export function About() {
+interface Props {
+  theme: 'light' | 'dark'
+  onToggleTheme: () => void
+}
+
+export function About({ theme, onToggleTheme }: Props) {
   const ref = useReveal<HTMLElement>()
 
   return (
     <section id="about" ref={ref} className={styles.about}>
+      {/* ── LEFT: photo + name + role ── */}
+      <div className={styles.sidebar}>
+        <div className={`${styles.avatarWrap} reveal`}>
+          <div className={styles.avatarRing}>
+            <div className={styles.avatarInner}>
+              {personal.photo ? (
+                <img src={personal.photo} alt={personal.name} className={styles.photo} />
+              ) : (
+                <svg viewBox="0 0 60 60" fill="none" className={styles.personIcon}>
+                  <circle cx="30" cy="22" r="11" fill="var(--ind-m)" />
+                  <ellipse cx="30" cy="50" rx="18" ry="12" fill="var(--ind-m)" />
+                </svg>
+              )}
+            </div>
+          </div>
+        </div>
 
-      {/* ── LEFT: narrative ── */}
+        <div className={`${styles.sidebarName} reveal d1`}>
+          <span className={styles.sideName}>{personal.name}</span>
+          <span className={styles.sideRole}>{personal.role}</span>
+        </div>
+      </div>
+
+      {/* ── CENTER: narrative ── */}
       <div className={styles.main}>
-        <div className={`${styles.sectionTag} reveal`}>About me</div>
+        <div className={styles.mainTop}>
+          <div className={`${styles.sectionTag} reveal`}>About me</div>
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+        </div>
         <h2 className={`${styles.h2} reveal d1`}>
           A developer who<br />
           <em className={styles.em}>thinks before typing.</em>

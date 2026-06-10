@@ -42,8 +42,12 @@ export function useCurtain() {
         el.style.transform = 'translateY(100%)'
 
         setTimeout(() => {
+          el.style.transition = 'none'
           el.style.transform = 'translateY(-100%)'
           el.style.pointerEvents = 'none'
+          requestAnimationFrame(() => {
+            el.style.transition = 'transform 0.55s cubic-bezier(.77,0,.18,1)'
+          })
         }, 560)
       }, 80)
     }, 520)

@@ -38,8 +38,8 @@ type DelayClass = 1 | 2 | 3 | 4 | 5
 
 const TAG_COLORS = [
   {
-    bg: 'rgba(168,216,200,0.3)',    color: '#2d7a65',      border: 'rgba(168,216,200,0.6)',
-    hoverBg: 'rgba(168,216,200,0.55)', hoverColor: '#2d7a65', hoverBorder: 'var(--mint)',
+    bg: 'var(--mint-p)',    color: 'var(--mint-d)',  border: 'var(--mint-m)',
+    hoverBg: 'var(--mint-p)', hoverColor: 'var(--mint-d)', hoverBorder: 'var(--mint)',
     hoverShadow: '0 4px 14px rgba(168,216,200,0.4)',
   },
   {

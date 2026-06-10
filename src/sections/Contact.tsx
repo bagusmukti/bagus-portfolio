@@ -1,14 +1,12 @@
 import styles from './Contact.module.css'
 import { useReveal } from '../hooks/useReveal'
 import { personal } from '../safeData'
-import { MdEmail } from 'react-icons/md'
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 
 const contacts = [
-  { label: 'Email',     Icon: MdEmail,      href: `mailto:${personal.email}`,  value: personal.email },
-  { label: 'LinkedIn',  Icon: FaLinkedin,   href: personal.linkedin,            value: 'linkedin.com/in/bagusmuktipurnomo' },
-  { label: 'GitHub',    Icon: FaGithub,     href: personal.github,              value: 'github.com/bagusmukti' },
-  { label: 'Instagram', Icon: FaInstagram,  href: personal.instagram,           value: '@bagusmuktiii' },
+  { label: 'Email',     href: `mailto:${personal.email}` },
+  { label: 'LinkedIn',  href: personal.linkedin },
+  { label: 'GitHub',    href: personal.github },
+  { label: 'Instagram', href: personal.instagram },
 ]
 
 export function Contact() {
@@ -29,27 +27,23 @@ export function Contact() {
           </p>
         </div>
 
-        <div className={`${styles.links} reveal d3`}>
+        <ul className={`${styles.links} reveal d3`}>
           {contacts
             .filter((c) => c.href)
-            .map(({ label, Icon, href, value }) => (
-              <a
-                key={label}
-                href={href!}
-                className={styles.contactLink}
-                target={href!.startsWith('mailto') ? undefined : '_blank'}
-                rel="noopener noreferrer"
-              >
-                <span className={styles.iconWrap}>
-                  <Icon />
-                </span>
-                <span className={styles.linkInfo}>
+            .map(({ label, href }) => (
+              <li key={label} className={styles.item}>
+                <a
+                  href={href!}
+                  className={styles.contactLink}
+                  target={href!.startsWith('mailto') ? undefined : '_blank'}
+                  rel="noopener noreferrer"
+                >
                   <span className={styles.linkLabel}>{label}</span>
-                  <span className={styles.linkValue}>{value}</span>
-                </span>
-              </a>
+                  <span className={styles.arrow}>↗</span>
+                </a>
+              </li>
             ))}
-        </div>
+        </ul>
 
       </div>
     </section>
