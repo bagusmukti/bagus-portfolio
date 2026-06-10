@@ -2,11 +2,11 @@ import styles from './Projects.module.css'
 import { useReveal } from '../hooks/useReveal'
 import { projects } from '../safeData'
 
-const THUMB_BG: Record<string, string> = {
-  ind: 'var(--ind-p)',
-  pch: 'var(--pch-p)',
-  lav: 'rgba(200,197,240,0.25)',
-  mint: 'rgba(168,216,200,0.2)',
+const THUMB_GRAD: Record<string, string> = {
+  ind:  'linear-gradient(135deg, var(--ind-p) 0%, var(--bg) 100%)',
+  pch:  'linear-gradient(135deg, var(--pch-p) 0%, var(--bg) 100%)',
+  lav:  'linear-gradient(135deg, rgba(200,197,240,0.4) 0%, var(--bg) 100%)',
+  mint: 'linear-gradient(135deg, rgba(168,216,200,0.4) 0%, var(--bg) 100%)',
 }
 
 type DelayClass = 1 | 2 | 3 | 4
@@ -31,20 +31,19 @@ export function Projects() {
             <article key={p.num} className={`${styles.card} reveal d${d}`}>
               <div
                 className={styles.thumb}
-                style={{ background: p.image ? undefined : (THUMB_BG[p.color] ?? THUMB_BG.ind) }}
+                style={{ background: p.image ? undefined : (THUMB_GRAD[p.color] ?? THUMB_GRAD.ind) }}
               >
                 {p.image ? (
                   <img src={p.image} alt={p.title} className={styles.thumbImg} />
                 ) : (
                   <>
-                    <span className={styles.thumbNum}>{p.num}</span>
-                    <svg className={styles.thumbIcon} viewBox="0 0 80 80" fill="none">
-                      <rect x="10" y="20" width="60" height="40" rx="6" stroke="var(--ind-m)" strokeWidth="2" />
-                      <path d="M10 30h60" stroke="var(--ind-m)" strokeWidth="2" />
-                      <circle cx="18" cy="25" r="2" fill="var(--ind-m)" />
-                      <circle cx="25" cy="25" r="2" fill="var(--ind-m)" />
-                      <circle cx="32" cy="25" r="2" fill="var(--ind-m)" />
-                    </svg>
+                    <span className={styles.thumbWatermark}>{p.num}</span>
+                    <span className={styles.thumbTitle}>{p.title}</span>
+                    <div className={styles.thumbTags}>
+                      {p.stack.slice(0, 2).map((t) => (
+                        <span key={t} className={styles.thumbTag}>{t}</span>
+                      ))}
+                    </div>
                   </>
                 )}
               </div>

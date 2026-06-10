@@ -37,10 +37,9 @@ export function Navbar({ onNav }: Props) {
         ))}
       </ul>
 
-      <div className={styles.badge}>
-        <span className={styles.pulse} />
-        Open to work
-      </div>
+      <button className={styles.contactBtn} onClick={() => onNav('contact')}>
+        Contact Me
+      </button>
     </nav>
   )
 }

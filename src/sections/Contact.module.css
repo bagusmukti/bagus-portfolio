@@ -61,215 +61,69 @@
   max-width: 480px;
 }
 
-/* ─── INFO CARDS ROW ─── */
-.infoRow {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.infoRow > * {
-  flex: 0 1 280px;
-}
-
-.infoCard {
+/* ─── CONTACT LINKS ─── */
+.links {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  padding: 1.2rem 1.4rem;
-  border-radius: 14px;
-  background: var(--bg);
-  border: 1.5px solid var(--rule);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  gap: 1rem;
+  max-width: 520px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.infoCard:hover {
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.1rem 1.4rem;
+  border-radius: 16px;
+  background: var(--bg);
+  border: 1.5px solid var(--rule);
+  cursor: none;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+  text-decoration: none;
+}
+
+.contactLink:hover {
   border-color: var(--ind-m);
   box-shadow: 0 4px 16px rgba(74, 69, 128, 0.1);
+  transform: translateY(-2px);
 }
 
-.infoKey {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink4);
-  font-weight: 500;
-}
-
-.infoVal {
-  font-size: 0.9rem;
-  color: var(--ink2);
-  font-weight: 400;
-}
-
-.infoLink {
-  color: var(--ind);
-  transition: color 0.2s;
-  cursor: none;
-}
-
-.infoLink:hover {
-  color: var(--ind-l);
-}
-
-/* ─── FORM BLOCK ─── */
-.formBlock {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 2.5rem;
-  border-radius: 20px;
-  background: var(--bg);
-  border: 1.5px solid var(--rule);
-}
-
-.formTag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--pch);
-  font-weight: 500;
+.iconWrap {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-}
-
-.formTag::before {
-  content: '';
-  display: inline-block;
-  width: 2px;
-  height: 14px;
-  background: var(--pch);
-  border-radius: 2px;
-}
-
-.form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-}
-
-.fieldFull {
-  grid-column: 1 / -1;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.fieldLabel {
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink4);
-  font-weight: 500;
-}
-
-.input {
-  padding: 0.75rem 1rem;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
-  border: 1.5px solid var(--rule);
-  background: var(--bg2);
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.88rem;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  resize: none;
-  width: 100%;
+  background: var(--ind-p);
+  color: var(--ind);
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
-.input::placeholder {
-  color: var(--ink4);
-}
-
-.input:focus {
-  border-color: var(--ind-l);
-  box-shadow: 0 0 0 4px rgba(110, 105, 176, 0.12);
-}
-
-.textarea {
-  min-height: 130px;
-}
-
-.formFooter {
-  grid-column: 1 / -1;
+.linkInfo {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.15rem;
 }
 
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.socialPill {
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  border: 1.5px solid var(--rule);
-  font-size: 0.78rem;
-  color: var(--ink3);
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: none;
-}
-
-.socialPill:hover {
-  background: var(--ind);
-  color: #fff;
-  border-color: var(--ind);
-}
-
-.submitBtn {
-  padding: 0.85rem 2rem;
-  border-radius: 50px;
-  background: var(--ind);
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: none;
-  border: none;
-  box-shadow: 0 6px 20px rgba(74, 69, 128, 0.25);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+.linkLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink2);
   letter-spacing: 0.02em;
-  white-space: nowrap;
 }
 
-.submitBtn:hover {
-  background: var(--ind-l);
-  box-shadow: 0 8px 24px rgba(74, 69, 128, 0.35);
-  transform: translateY(-1px);
+.linkValue {
+  font-size: 0.8rem;
+  color: var(--ink4);
 }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 860px) {
   .contact {
     padding: 3.5rem 1.5rem;
-  }
-
-  .infoRow {
-    grid-template-columns: 1fr;
-  }
-
-  .form {
-    grid-template-columns: 1fr;
-  }
-
-  .fieldFull {
-    grid-column: 1;
-  }
-
-  .formBlock {
-    padding: 1.5rem;
-  }
-
-  .formFooter {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }

@@ -76,12 +76,14 @@
 }
 
 .thumb {
-  height: 100px;
+  height: 160px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .thumbImg {
@@ -90,21 +92,44 @@
   object-fit: cover;
 }
 
-.thumbNum {
+.thumbWatermark {
   position: absolute;
-  top: 12px;
-  left: 16px;
+  right: 14px;
+  bottom: -8px;
   font-family: 'Fraunces', serif;
   font-weight: 700;
-  font-size: 1.8rem;
-  color: var(--ind-m);
+  font-size: 5.5rem;
+  color: rgba(74, 69, 128, 0.08);
   line-height: 1;
+  user-select: none;
+  pointer-events: none;
 }
 
-.thumbIcon {
-  opacity: 0.35;
-  width: 60px;
-  height: 60px;
+.thumbTitle {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ink2);
+  text-align: center;
+  padding: 0 1.2rem;
+  z-index: 1;
+  line-height: 1.3;
+}
+
+.thumbTags {
+  display: flex;
+  gap: 0.4rem;
+  z-index: 1;
+}
+
+.thumbTag {
+  font-size: 0.65rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink3);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(74, 69, 128, 0.1);
 }
 
 .body {

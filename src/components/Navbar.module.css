@@ -66,31 +66,24 @@
   border-radius: 2px;
 }
 
-.badge {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem;
+.contactBtn {
+  padding: 0.5rem 1.4rem;
   border-radius: 50px;
-  background: var(--pch-p);
-  border: 1px solid rgba(232, 130, 106, 0.25);
-  font-size: 0.72rem;
-  color: var(--pch);
+  background: var(--ind);
+  color: #fff;
+  font-size: 0.75rem;
   font-weight: 500;
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  box-shadow: 0 4px 14px rgba(74, 69, 128, 0.28);
 }
 
-.pulse {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--pch);
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.5; }
+.contactBtn:hover {
+  background: var(--ind-l);
+  box-shadow: 0 6px 18px rgba(74, 69, 128, 0.38);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 860px) {
