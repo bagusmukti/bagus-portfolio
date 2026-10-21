@@ -11,11 +11,11 @@ export const personal = {
 }
 
 export const skills = [
-  { cat: 'Frontend', tags: ['Javascript', 'React', 'TypeScript', 'Tailwind CSS'], level: 'Advanced' },
+  { cat: 'Frontend', tags: ['Javascript', 'React.js', 'TypeScript', 'Next.js'], level: 'Advanced' },
   { cat: 'Backend',  tags: ['PHP', 'C#', 'Laravel', 'ASP.NET'],                  level: 'Advanced' },
   { cat: 'Mobile',   tags: ['Flutter', 'Dart', 'BLoC', 'Provider'],               level: 'Intermediate' },
-  { cat: 'Database', tags: ['MySQL', 'PostgreSQL', 'Redis'],                       level: 'Proficient' },
-  { cat: 'Workflow', tags: ['Git', 'CI/CD', 'Figma', 'Agile'],                    level: 'Everyday' },
+  { cat: 'Database', tags: ['MySQL', 'PostgreSQL', 'Redis', 'Supabase'],           level: 'Proficient' },
+  { cat: 'Workflow', tags: ['Git', 'Figma', 'Agile'],                           level: 'Everyday' },
 ]
 
 export const projects = [
@@ -31,11 +31,41 @@ export const projects = [
     },
     year: '2026',
     color: 'ind',
-    githubUrl: '#',
+    githubUrl: 'https://play.google.com/store/apps/details?id=com.budgex.budgex',
     image: '',
   },
   {
     num: '02',
+    title: 'SKEM AI Co-Pilot',
+    stack: ['Next.js', 'Supabase'],
+    star: {
+      situation: 'At the PENS Hackathon 2026, a team of three had about 20 hours to build a working prototype for a real campus problem. Academic advisors check student extracurricular credit (SKEM) submissions by hand, and many of the mistakes repeat.',
+      task: 'As Team Leader and Frontend Developer, the goal was to get three people building one end-to-end product in parallel, while also owning the advisor review screens.',
+      action: 'SKEM AI Co-Pilot was built to pre-check submitted certificates with AI before an advisor sees them. Requirements were broken into scoped GitHub issues with owners and priorities, pull requests were reviewed to keep the frontend and backend aligned, and the advisor’s review queue and approve-or-reject screens were developed.',
+      result: 'A working prototype was delivered from certificate upload to advisor approval and presented live.',
+    },
+    year: '2026',
+    color: 'pch',
+    githubUrl: 'https://skem-copilot.vercel.app/',
+    image: '',
+  },
+  {
+    num: '03',
+    title: 'Court Call',
+    stack: ['React.js', 'Next.js', 'Supabase'],
+    star: {
+      situation: 'UKM Badminton PENS coordinated all its activities through Google Form, leading to double-bookings, disputed payments, and no record of attendance or results.',
+      task: 'As the sole developer, I needed to build a web app replacing this with structured booking, verifiable QRIS payments, and live session management.',
+      action: 'Built with Next.js and Supabase, using Row-Level Security to enforce access, a synced booking-payment flow, realtime queue and court views, and admin tools for results, leaderboard, and reporting — shipped in small, tested increments.',
+      result: 'Delivered a feature-complete v1 covering activity management, booking and payment, live court operations, match history, leaderboard, and reporting — letting the club run a full session end-to-end without relying on basic form at all.',
+    },
+    year: '2026',
+    color: 'pch',
+    githubUrl: 'https://github.com/bagusmukti/court-call',
+    image: '',
+  },
+  {
+    num: '04',
     title: 'DataKita',
     stack: ['React', 'Typescript', 'Tailwind'],
     star: {
@@ -46,37 +76,7 @@ export const projects = [
     },
     year: '2026',
     color: 'pch',
-    githubUrl: 'https://github.com/bagusmukti/datakita',
-    image: '',
-  },
-  {
-    num: '03',
-    title: 'RoomRes',
-    stack: ['ASP.NET', 'React Typescript', 'PostgreSQL'],
-    star: {
-      situation: 'Campus room booking was handled manually via physical forms, causing scheduling conflicts and slow approval turnaround.',
-      task: 'Design and build a web-based room reservation system with real-time schedule visibility and status tracking.',
-      action: 'Built an ASP.NET Core API with PostgreSQL, a React TypeScript frontend, and an admin panel for managing room availability and booking requests.',
-      result: 'Provided a centralized room booking workflow that improved scheduling visibility and streamlined reservation management across campus facilities.',
-    },
-    year: '2026',
-    color: 'lav',
-    githubUrl: 'https://github.com/bagusmukti/2026-room-reservation-frontend',
-    image: '',
-  },
-  {
-    num: '04',
-    title: 'Employee Management System',
-    stack: ['Laravel', 'PHP', 'Javascript'],
-    star: {
-      situation: 'Managing employee records, attendance, and leave requests through separate processes can increase administrative workload and reduce operational efficiency.',
-      task: 'Build a full workforce management platform covering employee records, attendance, leave, and admin operations — solo, in 3 months.',
-      action: 'Developed with Laravel and JavaScript; designed a normalized MySQL schema and integrated a fingerprint attendance module via REST API.',
-      result: 'Digitized key HR processes through a centralized platform, improving accessibility and organization of workforce data.',
-    },
-    year: '2025',
-    color: 'mint',
-    githubUrl: 'https://github.com/bagusmukti/app-pegawai',
+    githubUrl: 'https://datakita-one.vercel.app/',
     image: '',
   },
   {
@@ -91,22 +91,7 @@ export const projects = [
     },
     year: '2025',
     color: 'lav',
-    githubUrl: 'https://github.com/bagusmukti/umkm-lokal',
-    image: '',
-  },
-  {
-    num: '06',
-    title: 'Public Grievance System',
-    stack: ['PHP', 'Javascript', 'CSS'],
-    star: {
-      situation: 'Citizens had no structured way to report public service issues — complaints were submitted verbally and often went untracked.',
-      task: 'Build a citizen complaint platform where users can submit reports, track status, and receive responses from administrators.',
-      action: 'Developed with PHP, JS, and CSS; built an admin panel for complaint triage, status updates, and response management.',
-      result: 'Digitized the full complaint lifecycle; admin response rate improved significantly with centralized tracking replacing manual logs.',
-    },
-    year: '2025',
-    color: 'pch',
-    githubUrl: 'https://github.com/bagusmukti/Project-UAS',
+    githubUrl: 'https://umkmberotakagile.netlify.app/',
     image: '',
   },
 ]

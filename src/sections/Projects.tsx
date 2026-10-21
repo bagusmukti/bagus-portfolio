@@ -68,7 +68,7 @@ export function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View Code ↗
+                  View Project ↗
                 </a>
               </div>
             </article>
