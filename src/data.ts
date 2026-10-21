@@ -1,3 +1,17 @@
+import budgex1 from './assets/budgex1.png'
+import budgex2 from './assets/budgex2.png'
+import budgex3 from './assets/budgex3.png'
+import skem1 from './assets/skem1.png'
+import skem2 from './assets/skem2.png'
+import skem3 from './assets/skem3.png'
+import courtcall1 from './assets/courtcall1.png'
+import courtcall2 from './assets/courtcall2.png'
+import courtcall3 from './assets/courtcall3.png'
+import datakita1 from './assets/datakita1.png'
+import datakita2 from './assets/datakita2.png'
+import msme1 from './assets/msme1.png'
+import msme2 from './assets/msme2.png'
+
 export const personal = {
   name: 'Bagus Mukti Purnomo',
   role: 'Software Engineer',
@@ -32,7 +46,7 @@ export const projects = [
     year: '2026',
     color: 'ind',
     githubUrl: 'https://play.google.com/store/apps/details?id=com.budgex.budgex',
-    image: '',
+    images: [budgex1, budgex2, budgex3],
   },
   {
     num: '02',
@@ -47,7 +61,7 @@ export const projects = [
     year: '2026',
     color: 'pch',
     githubUrl: 'https://skem-copilot.vercel.app/',
-    image: '',
+    images: [skem1, skem2, skem3],
   },
   {
     num: '03',
@@ -62,7 +76,7 @@ export const projects = [
     year: '2026',
     color: 'pch',
     githubUrl: 'https://github.com/bagusmukti/court-call',
-    image: '',
+    images: [courtcall1, courtcall2, courtcall3],
   },
   {
     num: '04',
@@ -77,7 +91,7 @@ export const projects = [
     year: '2026',
     color: 'pch',
     githubUrl: 'https://datakita-one.vercel.app/',
-    image: '',
+    images: [datakita1, datakita2],
   },
   {
     num: '05',
@@ -92,6 +106,6 @@ export const projects = [
     year: '2025',
     color: 'lav',
     githubUrl: 'https://umkmberotakagile.netlify.app/',
-    image: '',
+    images: [msme1, msme2],
   },
 ]

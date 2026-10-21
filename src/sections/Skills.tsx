@@ -3,12 +3,13 @@ import { useReveal } from '../hooks/useReveal'
 import { MagneticTag } from '../components/MagneticTag'
 import { skills } from '../safeData'
 import {
-  SiJavascript, SiReact, SiTypescript, SiTailwindcss,
+  SiJavascript, SiReact, SiNextdotjs, SiTypescript, SiTailwindcss,
   SiPhp, SiLaravel, SiDotnet,
   SiFlutter, SiDart,
-  SiMysql, SiPostgresql, SiRedis,
+  SiMysql, SiPostgresql, SiRedis, SiSupabase,
   SiGit, SiFigma, SiGithubactions,
 } from 'react-icons/si'
+import { MdAutorenew } from 'react-icons/md'
 import { type ReactNode } from 'react'
 
 const ic = (icon: ReactNode, color: string) => (
@@ -17,7 +18,8 @@ const ic = (icon: ReactNode, color: string) => (
 
 const ICON_MAP: Record<string, ReactNode> = {
   'Javascript':   ic(<SiJavascript />,   '#F7DF1E'),
-  'React':        ic(<SiReact />,        '#61DAFB'),
+  'React.js':     ic(<SiReact />,        '#61DAFB'),
+  'Next.js':      ic(<SiNextdotjs />,    'var(--ink)'),
   'TypeScript':   ic(<SiTypescript />,   '#3178C6'),
   'Tailwind CSS': ic(<SiTailwindcss />,  '#06B6D4'),
   'PHP':          ic(<SiPhp />,          '#777BB4'),
@@ -29,9 +31,11 @@ const ICON_MAP: Record<string, ReactNode> = {
   'MySQL':        ic(<SiMysql />,        '#4479A1'),
   'PostgreSQL':   ic(<SiPostgresql />,   '#4169E1'),
   'Redis':        ic(<SiRedis />,        '#DC382D'),
+  'Supabase':     ic(<SiSupabase />,     '#3FCF8E'),
   'Git':          ic(<SiGit />,          '#F05032'),
   'CI/CD':        ic(<SiGithubactions />, '#2088FF'),
   'Figma':        ic(<SiFigma />,        '#F24E1E'),
+  'Agile':        ic(<MdAutorenew />,    '#0052CC'),
 }
 
 type DelayClass = 1 | 2 | 3 | 4 | 5
