@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import styles from './Projects.module.css'
 import { useReveal } from '../hooks/useReveal'
 import { projects } from '../safeData'
@@ -10,6 +12,80 @@ const THUMB_GRAD: Record<string, string> = {
 }
 
 type DelayClass = 1 | 2 | 3 | 4
+
+function Gallery({ images, title }: { images: string[]; title: string }) {
+  const [index, setIndex] = useState(0)
+  const [open, setOpen] = useState(false)
+  const go = (step: number) => setIndex(i => (i + step + images.length) % images.length)
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'ArrowLeft') go(-1)
+      if (e.key === 'ArrowRight') go(1)
+    }
+    document.addEventListener('keydown', onKey)
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = ''
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open])
+
+  return (
+    <div className={styles.gallery}>
+      <div className={styles.slides} style={{ transform: `translateX(-${index * 100}%)` }}>
+        {images.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt={`${title} screenshot ${i + 1}`}
+            className={styles.thumbImg}
+            loading="lazy"
+            onClick={() => setOpen(true)}
+          />
+        ))}
+      </div>
+
+      <button type="button" className={styles.zoomBtn} onClick={() => setOpen(true)} aria-label="View full size">⤢</button>
+
+      {open && createPortal(
+        <div className={styles.lightbox} onClick={() => setOpen(false)} role="dialog" aria-label={`${title} screenshots`}>
+          <img src={images[index]} alt={`${title} screenshot ${index + 1}`} className={styles.lightboxImg} onClick={e => e.stopPropagation()} />
+          <button type="button" className={`${styles.lbBtn} ${styles.lbClose}`} onClick={() => setOpen(false)} aria-label="Close">✕</button>
+          {images.length > 1 && (
+            <>
+              <button type="button" className={`${styles.lbBtn} ${styles.lbPrev}`} onClick={e => { e.stopPropagation(); go(-1) }} aria-label="Previous image">‹</button>
+              <button type="button" className={`${styles.lbBtn} ${styles.lbNext}`} onClick={e => { e.stopPropagation(); go(1) }} aria-label="Next image">›</button>
+              <span className={styles.lbCount}>{index + 1} / {images.length}</span>
+            </>
+          )}
+        </div>,
+        document.body,
+      )}
+
+      {images.length > 1 && (
+        <>
+          <button type="button" className={`${styles.navBtn} ${styles.prev}`} onClick={() => go(-1)} aria-label="Previous image">‹</button>
+          <button type="button" className={`${styles.navBtn} ${styles.next}`} onClick={() => go(1)} aria-label="Next image">›</button>
+          <div className={styles.dots}>
+            {images.map((src, i) => (
+              <button
+                key={src}
+                type="button"
+                className={`${styles.dot} ${i === index ? styles.dotActive : ''}`}
+                onClick={() => setIndex(i)}
+                aria-label={`Show image ${i + 1}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export function Projects() {
   const ref = useReveal<HTMLElement>()
@@ -31,10 +107,10 @@ export function Projects() {
             <article key={p.num} className={`${styles.card} reveal d${d}`}>
               <div
                 className={styles.thumb}
-                style={{ background: p.image ? undefined : (THUMB_GRAD[p.color] ?? THUMB_GRAD.ind) }}
+                style={{ background: THUMB_GRAD[p.color] ?? THUMB_GRAD.ind }}
               >
-                {p.image ? (
-                  <img src={p.image} alt={p.title} className={styles.thumbImg} />
+                {p.images?.length ? (
+                  <Gallery images={p.images} title={p.title} />
                 ) : (
                   <>
                     <span className={styles.thumbWatermark}>{p.num}</span>
